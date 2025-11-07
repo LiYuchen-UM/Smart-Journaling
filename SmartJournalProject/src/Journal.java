@@ -16,6 +16,8 @@ public class Journal {
     public static final ZonedDateTime now = ZonedDateTime.now(timezone);
     public static final LocalDate today = now.toLocalDate();
 
+    private API api = new API();
+
     private String date = "";
     private int lineNumber;
     private int countJournal = 1;
@@ -25,7 +27,7 @@ public class Journal {
         try {
             PrintWriter outputStream = new PrintWriter(new FileOutputStream(email + "_journal.txt",true));
             Scanner inputStream = new Scanner(new FileInputStream(email + "_journal.txt"));
-            System.out.println("=== Journal Dates ===");
+            System.out.println("\n=== Journal Dates ===");
             lineNumber = 0;
             while (inputStream.hasNextLine()) {
                 lineNumber++;
@@ -52,7 +54,7 @@ public class Journal {
         return countJournal;
     }
 
-    void journalPreviewPage(int journalDateNum, String email) {
+    void journalPage(int journalDateNum, String email) {
         int dateLine = journalDateNum * 4 - 3;
         try {
             Scanner inputStream = new Scanner(new FileInputStream(email + "_journal.txt"));
@@ -68,11 +70,34 @@ public class Journal {
             }
             if (isTodayNoJournal && journalDateNum == countJournal) {
                 PrintWriter outputStream = new PrintWriter(new FileOutputStream(email + "_journal.txt",true));
-                System.out.println("Enter your journal entry for " + today + ": ");
-                outputStream.println(today);
+                System.out.println("\nEnter your journal entry for " + today + ": ");
+                System.out.print("> ");
+                String entryText = input.nextLine();
                 
+                outputStream.println(today);
+                outputStream.println("Weather: ");
+                outputStream.println("Mood: ");
+                outputStream.println(entryText);
+                System.out.println("Journal saved successfully!");
+                isTodayNoJournal = false;
+                outputStream.close();
+                inputStream.close();
+                journalPage(journalDateNum, email);
             } else {
-                System.out.println("=== Journal Entry for " + date + " ===");
+                System.out.println("\n=== Journal Entry for " + date + " ===");
+                System.out.println("Would you like to:");
+                System.out.println("1. View Journal");
+                System.out.println("2. Edit Journal");
+                System.out.println("3. Back to Dates");
+                System.out.print("\n> ");
+                String journalEditChoice = input.nextLine();
+                switch (journalEditChoice) {
+                    case "1":
+                        
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
             }
 
 

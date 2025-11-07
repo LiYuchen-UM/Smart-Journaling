@@ -52,7 +52,7 @@ public class SmartJournal {
             System.out.println("\nGood Morning! " + user.getDisplayName());
         }
         // 主要功能菜单
-        System.out.println("=== Main Menu ===");
+        System.out.println("\n=== Main Menu ===");
         System.out.println("1. Create Journals");
         System.out.println("2. View Weekly Mood Summary");
         System.out.println("3. Log Out");
@@ -89,7 +89,7 @@ public class SmartJournal {
             journalDateNum = input.nextInt();
         } while (journalDateNum < 1 || journalDateNum > countJournal);
 
-        journal.journalPreviewPage(journalDateNum,user.getEmail());
+        journal.journalPage(journalDateNum,user.getEmail());
         
     }
     
