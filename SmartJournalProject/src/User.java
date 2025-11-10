@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class User {
 
-    public String email, displayName;
+    private String email, password, displayName;
     public static Scanner input = new Scanner(System.in);
+
+
 
     boolean register() {
         
@@ -39,7 +41,7 @@ public class User {
             System.out.print("Enter password: ");
             String password = input.nextLine();
             outputStream.println(password);
-
+            inputStream.close();
             outputStream.close();
         } 
         catch (IOException e) {
