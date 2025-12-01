@@ -12,6 +12,7 @@
     ```bash
     java -jar SmartJournal.jar
     ```
+    Tips: You may meet `Permission denied: connect` error, try adding `-Djava.net.preferIPv4Stack=true` parameter.
 > You need to provide a vaild `.env` file.
 
 ## 1. Project Mission
