@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Map;
 
 public class API {
 
@@ -87,7 +86,7 @@ public class API {
         return sb.toString();
     }
 
-    // Example usage
+    /* Example usage
     public static void main(String[] args) {
         API api = new API();
 
@@ -121,5 +120,5 @@ public class API {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } */
 }
