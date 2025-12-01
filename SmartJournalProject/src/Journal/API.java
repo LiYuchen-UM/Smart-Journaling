@@ -86,27 +86,6 @@ public class API {
         return sb.toString();
     }
 
-    public String parser(String jsonString, String keyToFind) {
-        //String keyToFind = "\"summary_forecast\":";
-        String summaryForecast = null;
-        int startIndex = jsonString.indexOf(keyToFind);
-
-        if (startIndex != -1) {
-            int valueStart = startIndex + keyToFind.length();
-            // Find value start with "
-            valueStart = jsonString.indexOf('\"', valueStart);
-            if (valueStart != -1) {
-                // End with same "
-                int valueEnd = jsonString.indexOf('\"', valueStart + 1);
-                if (valueEnd != -1) {
-                    summaryForecast = jsonString.substring(valueStart + 1, valueEnd);
-                }
-            }
-        }
-        return summaryForecast;
-    }
-
-
     /* Example usage
     public static void main(String[] args) {
         API api = new API();
